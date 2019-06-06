@@ -21,3 +21,31 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+.settings
+.project
+.classpath
+
+2tf-bussines-cuestionario/.settings
+2tf-bussines-cuestionario/.project
+2tf-bussines-cuestionario/.classpath
+
+2tf-bussines-informacion/.project
+2tf-bussines-informacion/.settings
+2tf-bussines-informacion/.classpath
+
+2tf-rest-info/.project
+2tf-rest-info/.settings
+2tf-rest-info/.classpath
+
+2tf-rest/.project
+2tf-rest/.settings
+2tf-rest/.classpath
+
+2tf-security/.project
+2tf-security/.settings
+2tf-security/.classpath
+
+2tf-utiles/.project
+2tf-utiles/.settings
+2tf-utiles/.classpath
