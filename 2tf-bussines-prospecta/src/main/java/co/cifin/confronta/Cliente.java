@@ -1,4 +1,4 @@
-package co.cifin; 
+package co.cifin.confronta; 
  
 import com.webservice.prospecta.ProspectaSoapBindingStub; 
 import com.webservice.prospecta.ProspectaWSServiceLocator; 

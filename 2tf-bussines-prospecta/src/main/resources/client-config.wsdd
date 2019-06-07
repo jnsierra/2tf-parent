@@ -5,7 +5,7 @@
 			<parameter name="signaturePropFile" value="seguridad.properties"/>
 			<parameter name="action" value="Signature Timestamp"/>
 			<parameter name="user" value="2tftest"/>
-			<parameter name="passwordCallbackClass" value="co.cifin.PWCallBack"/>
+			<parameter name="passwordCallbackClass" value="co.cifin.confronta.PWCallBack"/>
 	</handler>
 <transport name="java" pivot="java:org.apache.axis.transport.java.JavaSender"/>
 <transport name="http" pivot="java:org.apache.axis.transport.http.HTTPSender">

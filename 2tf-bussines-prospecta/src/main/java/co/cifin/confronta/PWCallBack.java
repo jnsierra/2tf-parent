@@ -1,4 +1,4 @@
-package co.cifin; 
+package co.cifin.confronta; 
  
 import java.io.IOException; 
 import java.util.MissingResourceException; 
