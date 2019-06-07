@@ -10,4 +10,4 @@ import co.dostf.utiles.dto.SecurityDto;
 public interface IProspectaService {
 
 	RespuestaProspectaDTO getProspecta(ParametersDto parameters, SecurityDto security) throws RemoteException;
-
+}
