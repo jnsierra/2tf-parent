@@ -38,6 +38,7 @@
 		<module>2tf-rest-info</module>
 		<module>2tf-bussines-cuestionario</module>
 		<module>2tf-bussines-informacion</module>
+		<module>dostf-bussines-prospecta</module>
 		<module>2tf-utiles</module>
 		<module>2tf-security</module>
 	</modules>
