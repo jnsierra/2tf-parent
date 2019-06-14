@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.dostf.bussiness.informacion.service.IComercialInformationService;
 import co.dostf.info.dto.wrapper.ComercialInformationDtoWrapper;
-import co.dostf.utiles.dto.error.ResponseRestService;
 
 @RestController
 @RequestMapping("/v.1.0/comercialInformation")
@@ -24,8 +23,8 @@ public class ComercialInformationController {
 	IComercialInformationService service;
 	
 	@RequestMapping(value = "/getComercialInformation/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ResponseRestService<String>> getComercialInformation(@RequestBody() ComercialInformationDtoWrapper comercialInformation) throws RemoteException,JSONException{
+	public ResponseEntity<String> getComercialInformation(@RequestBody() ComercialInformationDtoWrapper comercialInformation) throws RemoteException,JSONException{
 		String response = service.getComercialInformation(comercialInformation.getParameters(), comercialInformation.getSecurity());
-		return new ResponseEntity<>(new ResponseRestService<>(response), HttpStatus.OK);
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 }

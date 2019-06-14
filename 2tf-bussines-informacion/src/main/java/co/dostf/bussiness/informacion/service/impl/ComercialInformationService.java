@@ -32,8 +32,9 @@ public class ComercialInformationService implements IComercialInformationService
 			throws RemoteException, JSONException {
 		informacionComercialSoapBindingStub.setUsername(security.getUser());
 		informacionComercialSoapBindingStub.setPassword(security.getPassword());
-		JSONObject xmlJSONObj = XML.toJSONObject(informacionComercialSoapBindingStub.consultaXml(parameters));
-		return xmlJSONObj.toString(4);
+		String xml = informacionComercialSoapBindingStub.consultaXml(parameters);
+		JSONObject xmlJSONObj = XML.toJSONObject(xml);
+		return xmlJSONObj.toString();
 	}
 
 }
