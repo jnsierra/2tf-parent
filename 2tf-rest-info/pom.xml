@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>co.dostf.rest.info</groupId>
 	<artifactId>dostf-rest-info</artifactId>
-
+	<packaging>war</packaging>
 	<parent>
 		<groupId>co.dostf</groupId>
 		<artifactId>dostf-parent</artifactId>
