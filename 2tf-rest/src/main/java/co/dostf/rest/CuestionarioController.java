@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.cifin.confrontaultra.dto.ultra.CuestionarioULTRADTO;
+import co.cifin.confrontaultra.dto.ultra.ResultadoEvaluacionCuestionarioULTRADTO;
 import co.dostf.bussiness.cuestionario.service.ICuestionarioService;
 import co.dostf.dto.wrapper.CuestionarioDtoWrapper;
+import co.dostf.dto.wrapper.EvaluarCuestionarioDTOWrapper;
 import co.dostf.utiles.dto.error.ResponseRestService;
 
 
@@ -32,4 +34,12 @@ public class CuestionarioController {
 				cuestionario.getParametrosSeguridadULTRA());
 		return new ResponseEntity<>(new ResponseRestService<>(cuestionarioResp), HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/evaluarCuestionario/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ResponseRestService<ResultadoEvaluacionCuestionarioULTRADTO>> evaluarCuenstionario(
+			@RequestBody() EvaluarCuestionarioDTOWrapper cuestionario) throws RemoteException {
+		ResultadoEvaluacionCuestionarioULTRADTO cuestionarioResp = cuestionarioService.evaluarCuestionario(cuestionario.getParametros(), cuestionario.getSecurity());
+		return new ResponseEntity<>(new ResponseRestService<>(cuestionarioResp), HttpStatus.OK);
+	}
+	
 }

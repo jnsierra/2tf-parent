@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import co.cifin.confrontaultra.dto.ultra.CuestionarioULTRADTO;
 import co.cifin.confrontaultra.dto.ultra.ParametrosSeguridadULTRADTO;
 import co.cifin.confrontaultra.dto.ultra.ParametrosULTRADTO;
+import co.cifin.confrontaultra.dto.ultra.ResultadoEvaluacionCuestionarioULTRADTO;
+import co.cifin.confrontaultra.dto.ultras.RespuestaCuestionarioULTRADTO;
 import co.dostf.bussiness.cuestionario.service.ICuestionarioService;
 import corp.universo.ttuweb3.cifin.confrontav2plusws.services.ConfrontaUltraWS.ConfrontaUltraWSSoapBindingStub;
 
@@ -27,6 +29,12 @@ public class CuestionarioService implements ICuestionarioService {
 	@Override
 	public CuestionarioULTRADTO getCuestionario(ParametrosULTRADTO parametros, ParametrosSeguridadULTRADTO security) throws RemoteException {
 		return confrontaUltraWSSoapBindingStub.obtenerCuestionario(security, parametros);
+	}
+
+	@Override
+	public ResultadoEvaluacionCuestionarioULTRADTO evaluarCuestionario(RespuestaCuestionarioULTRADTO parametros,
+			ParametrosSeguridadULTRADTO security) throws RemoteException {
+		return confrontaUltraWSSoapBindingStub.evaluarCuestionario(security, parametros);
 	}
 
 }
