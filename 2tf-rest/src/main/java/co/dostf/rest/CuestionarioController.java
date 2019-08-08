@@ -1,8 +1,11 @@
 package co.dostf.rest;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +19,7 @@ import co.cifin.confrontaultra.dto.ultra.ResultadoEvaluacionCuestionarioULTRADTO
 import co.dostf.bussiness.cuestionario.service.ICuestionarioService;
 import co.dostf.dto.wrapper.CuestionarioDtoWrapper;
 import co.dostf.dto.wrapper.EvaluarCuestionarioDTOWrapper;
+import co.dostf.dto.wrapper.TestDto;
 import co.dostf.utiles.dto.error.ResponseRestService;
 
 
@@ -25,6 +29,9 @@ public class CuestionarioController {
 
 	@Autowired
 	ICuestionarioService cuestionarioService;
+	
+	@Value("${spring.application.name}")
+	private String name;
 
 
 	@RequestMapping(value = "/getCuestionario/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -40,6 +47,11 @@ public class CuestionarioController {
 			@RequestBody() EvaluarCuestionarioDTOWrapper cuestionario) throws RemoteException {
 		ResultadoEvaluacionCuestionarioULTRADTO cuestionarioResp = cuestionarioService.evaluarCuestionario(cuestionario.getParametros(), cuestionario.getSecurity());
 		return new ResponseEntity<>(new ResponseRestService<>(cuestionarioResp), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET, produces =  MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<TestDto> testService() throws UnknownHostException{
+		return new ResponseEntity<>(TestDto.of(InetAddress.getLocalHost().toString(), name), HttpStatus.OK);
 	}
 	
 }
